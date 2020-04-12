@@ -7,8 +7,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "12.16.x",
-    "npm": "5.7.1"
+    "node": "12.16.2"
   },
   "dependencies": {
     "request": "2.88.2",
