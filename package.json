@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server.js"
   },
+  "engines": {
+    "node": "12.16.x"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "discord.js": "^12.1.1",
