@@ -14,8 +14,6 @@
     "request": "2.88.2",
     "discord.js": "^12.1.1",
     "ytdl-core": "^2.0.1",
-    "ytdl-core-discord": "1.1.0",
-    "prism-media": "1.2.1",
     "http": "^0.0.0",
     "node-opus": "^0.3.2",
     "ffmpeg-binaries": "^4.0.0",
