@@ -38,7 +38,8 @@ exports.run = async (client, message, args, ops) => {
 async function play(client, ops, data) {
   client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing **${data.queue[0].songTitle}** | Requested by ${data.queue[0].requester}`);
   
-  data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly', bitrate: 192000, highWaterMark: 50, volume: '0.25' }));
+  data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly', bitrate: 192000, highWaterMark: 50 }));
+  data.dispatcher.setVolume(80/100);
   data.dispatcher.guildID = data.guildID;
   
   data.dispatcher.once('finish', function() {
