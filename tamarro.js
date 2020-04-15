@@ -38,4 +38,4 @@ client.on('ready', () => {
 	getGuildsNumber();
     client.setInterval(getGuildsNumber, pingFrequency);
 });
-client.login("Njk4MDg1MzQ1MDg2MDEzNDgw.XpBz8w.p4g4qhJYURtlaB49d6CquSN-3r0");
+client.login(process.env.TOKEN);
