@@ -26,6 +26,6 @@ client.on('message', message => {
 });
 
 client.on('ready', () => {
-  client.user.setActivity("%help | https://discord.gg/HKqb6V7"); 
+  client.user.setActivity(`%help | In ${client.guilds.cache.size} servers`); 
 });
 client.login("Njk4MDg1MzQ1MDg2MDEzNDgw.XpBz8w.p4g4qhJYURtlaB49d6CquSN-3r0");
