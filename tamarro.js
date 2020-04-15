@@ -30,10 +30,10 @@ function getGuildsNumber() {
 	client.shard.fetchClientValues('guilds.cache.size')
 	.then(results => {
 		return client.updatePresence({
-			state: `%help | In ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`;
-			details: 'I like Minecraft :D';
-			largeImageKey: 'normal_logo';
-			smallImageKey: 'minecraft';
+			state: `%help | In ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`,
+			details: 'I like Minecraft :D',
+			largeImageKey: 'normal_logo',
+			smallImageKey: 'minecraft',
 			instance: true,
 		});
 	})
