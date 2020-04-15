@@ -4,7 +4,9 @@ exports.run = (client, message, args, ops) => {
     if (args[0] > 100) return msg.reply('You can`t delete more than 100 messages at once!');
     if (amount < 1) return msg.reply('You have to delete at least 1 message!');
 
-    if(message.author.hasPermission('ADMINISTRATOR') || message.author.hasPermmission('MANAGE_MESSAGES')) await msg.channel.messages.fetch({ limit: amount }).then(messages => {
+    if(!message.author.hasPermission('ADMINISTRATOR') || !message.author.hasPermmission('MANAGE_MESSAGES')) return msg.reply("You haven't the permission to execute this command!");
+    
+    await msg.channel.messages.fetch({ limit: amount }).then(messages => {
         msg.channel.bulkDelete(messages)
     });
 }
