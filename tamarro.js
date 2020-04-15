@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const active = new Map();
+pingFrequency = (30 * 1000);
 
 const prefix = '%';
 const ownerID = '480987124405895168';
@@ -25,7 +26,16 @@ client.on('message', message => {
 	}
 });
 
+function getGuildsNumber() {
+	client.shard.fetchClientValues('guilds.cache.size')
+	.then(results => {
+		return client.user.setActivity(`%help | In ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`);
+	})
+	.catch(console.error);
+}
+
 client.on('ready', () => {
-  client.user.setActivity(`%help | In ${client.guilds.cache.size} servers`); 
+	getGuildsNumber();
+    client.setInterval(getGuildsNumber, pingFrequency);
 });
 client.login("Njk4MDg1MzQ1MDg2MDEzNDgw.XpBz8w.p4g4qhJYURtlaB49d6CquSN-3r0");
