@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js')('discord-rich-presence')('698085345086013480');
 const client = new Discord.Client();
 const active = new Map();
 pingFrequency = (30 * 1000);
@@ -29,7 +29,13 @@ client.on('message', message => {
 function getGuildsNumber() {
 	client.shard.fetchClientValues('guilds.cache.size')
 	.then(results => {
-		return client.user.setActivity(`%help | In ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`);
+		return client.updatePresence({
+			state: `%help | In ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`;
+			details: 'I like Minecraft :D';
+			largeImageKey: 'normal_logo';
+			smallImageKey: 'minecraft';
+			instance: true,
+		});
 	})
 	.catch(console.error);
 }
