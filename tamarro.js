@@ -9,6 +9,9 @@ const ownerID = '480987124405895168';
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
 });
+client.on("guildDelete", guild => {
+    console.log("Left a guild: " + guild.name);
+});
 
 client.on('message', message => {
 
