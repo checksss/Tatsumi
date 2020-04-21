@@ -5,11 +5,10 @@ pingFrequency = (30 * 1000);
 
 const prefix = ["%", "<@698085345086013480>"];
 const ownerID = '480987124405895168';
-const joinedLog = client.channels.fetch("702228736988413954");
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
-    joinedLog.send("Joined a new guild: " + "**" + guild.name + "**");
+    client.channels.fetch("702228736988413954").send("Joined a new guild: " + "**" + guild.name + "**");
 });
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
