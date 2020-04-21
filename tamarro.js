@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const active = new Map();
 pingFrequency = (30 * 1000);
 
-const prefix = '%';
+const prefix = ["%", "<@698085345086013480>"];
 const ownerID = '480987124405895168';
 
 client.on("guildCreate", guild => {
