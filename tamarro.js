@@ -5,7 +5,7 @@ pingFrequency = (30 * 1000);
 
 const prefix = ["%", "<@698085345086013480>"];
 const ownerID = '480987124405895168';
-const joinedLog = client.channels.find('name', 'bot-joined');
+const joinedLog = client.channels.get("702228736988413954");
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
