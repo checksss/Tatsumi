@@ -6,8 +6,8 @@ exports.run = async (client, message, args, ops) => {
 
     if (!args[0]) return message.reply("Please search or input an url following the command!");
 
-    let validate = await try {
-    	ytdl.validateURL(args[0]);
+    let validate = try {
+    	await ytdl.validateURL(args[0]);
     } catch (error) {
     }
 
