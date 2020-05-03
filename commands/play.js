@@ -6,7 +6,8 @@ exports.run = async (client, message, args, ops) => {
 
     if (!args[0]) return message.reply("Please search or input an url following the command!");
 
-    let validate = await ytdl.validateURL(args[0]).catch (err) {};
+    let validate = await ytdl.validateURL(args[0]).catch(e){
+    };
 
     if (!validate) {
       let commandFile = require("./search.js");
