@@ -11,11 +11,11 @@ var channelID = '702228736988413954';
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
-    client.guilds.cache.get('698569826444116005').channels.get("702228736988413954").send("Joined a new guild: " + "**" + guild.name + "**");
+    client.guilds.cache.get('698569826444116005').channels.find(channel => channel.name === "bot-joined").send("Joined a new guild: " + "**" + guild.name + "**");
 });
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
-    client.guilds.cache.get('698569826444116005').channels.get("702228736988413954").send("Left a guild: " + "**" + guild.name + "**");
+    client.guilds.cache.get('698569826444116005').channels.find(channel => channel.name === "bot-joined").send("Left a guild: " + "**" + guild.name + "**");
     guildID.channels.get("702228736988413954").send("Joined a new guild: " + "**" + guild.name + "**");
 });
 client.on("guildDelete", guild => {
