@@ -5,12 +5,13 @@ pingFrequency = (30 * 1000);
 
 const prefix = "%";
 const ownerID = '480987124405895168';
-let joinedChannel = client.channels.cache.get("702228736988413954");
+const joinedChannel = client.channels.cache.get("702228736988413954");
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
     joinedChannel.send("Joined a new guild: " + "**" + guild.name + "**");
 });
+
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
     joinedChannel.send("Left a guild: " + "**" + guild.name + "**");
@@ -27,7 +28,7 @@ client.on('message', message => {
 	try {
 		let ops = {
 			ownerID: ownerID,
-      active: active
+            active: active
 		}
 		let commandFile = require(`./commands/${cmd}.js`);
 		commandFile.run(client, message, args, ops);
