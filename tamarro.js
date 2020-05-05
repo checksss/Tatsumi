@@ -9,13 +9,13 @@ const ownerID = '480987124405895168';
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
     let joinedChannel = client.channels.cache.get("702228736988413954");
-    if(joinedChannel) joinedChannel.send("Joined a new guild: " + "**" + guild.name + "**");
+    joinedChannel.send("Joined a new guild: " + "**" + guild.name + "**");
 });
 
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
     let joinedChannel = client.channels.cache.get("702228736988413954");
-    if(joinedChannel) joinedChannel.send("Left a guild: " + "**" + guild.name + "**");
+    joinedChannel.send("Left a guild: " + "**" + guild.name + "**");
 });
 
 client.on('message', message => {
@@ -48,6 +48,7 @@ function getGuildsNumber() {
 
 client.on('ready', () => {
 	getGuildsNumber();
+	console.log(client.user.username + " is ready to go!");
     client.setInterval(getGuildsNumber, pingFrequency);
 });
 client.login(process.env.TOKEN);
