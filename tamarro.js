@@ -6,12 +6,16 @@ pingFrequency = (30 * 1000);
 const prefix = "%";
 const ownerID = '480987124405895168';
 
+var guildID = client.guilds.get('698569826444116005');
+var channelID = '702228736988413954';
+
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
-    client.channels.fetch("702228736988413954").send("Joined a new guild: " + "**" + guild.name + "**");
+    guildID.channels.get("702228736988413954").send("Joined a new guild: " + "**" + guild.name + "**");
 });
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
+    guildID.channels.get("702228736988413954").send("Left a guild: " + "**" + guild.name + "**");
 });
 
 client.on('message', message => {
