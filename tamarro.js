@@ -6,7 +6,7 @@ pingFrequency = (30 * 1000);
 const prefix = "%";
 const ownerID = '480987124405895168';
 
-var guildID = client.guilds.get('698569826444116005');
+var guildID = client.guilds.cache.get('698569826444116005');
 var channelID = '702228736988413954';
 
 client.on("guildCreate", guild => {
