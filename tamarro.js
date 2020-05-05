@@ -48,7 +48,6 @@ function getGuildsNumber() {
 
 client.on('ready', () => {
 	getGuildsNumber();
-	console.log(client.user.username + " is ready to go!");
-    client.setInterval(getGuildsNumber, pingFrequency);
+	client.setInterval(getGuildsNumber, pingFrequency);
 });
 client.login(process.env.TOKEN);
