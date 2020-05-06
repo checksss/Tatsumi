@@ -8,20 +8,12 @@ const ownerID = '480987124405895168';
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
-    guild.channels.cache.get("702228736988413954")
-    .then(channel => {
-    	channel.send("Joined a guild: **" + guild.name + "**");
-    })
-    .catch(console.error);
+    guild.channels.cache.get("702228736988413954").channel.send("Joined a guild: **" + guild.name + "**");
 });
 
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
-    guild.channels.cache.get("702228736988413954")
-    .then(channel => {
-    	channel.send("Left a guild: **" + guild.name + "**");
-    })
-    .catch(console.error);
+    guild.channels.cache.get("702228736988413954").channel.send("Left a guild: **" + guild.name + "**");
 });
 
 client.on('message', message => {
