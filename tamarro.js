@@ -5,15 +5,16 @@ pingFrequency = (30 * 1000);
 
 const prefix = "%";
 const ownerID = '480987124405895168';
+const joinChannel = client.channels.cache.get("702228736988413954");
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
-    guild.channels.cache.get("702228736988413954").send("Joined a guild: **" + guild.name + "**");
+    joinChannel.send("Joined a guild: **" + guild.name + "**");
 });
 
 client.on("guildDelete", guild => {
     console.log("Left a guild: " + guild.name);
-    guild.channels.cache.get("702228736988413954").send("Left a guild: **" + guild.name + "**");
+    joinChannel.send("Left a guild: **" + guild.name + "**");
 });
 
 client.on('message', message => {
