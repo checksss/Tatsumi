@@ -13,8 +13,10 @@ client.on("guildCreate", guild => {
     	guild.channels.cache.get("702228736988413954")
     	.then(channel => {
     		channel.send("Joined a guild: **" + guild.name + "**");
-    	});
-    });
+    	})
+    	.catch(console.error);
+    })
+    .catch(console.error);
 });
 
 client.on("guildDelete", guild => {
@@ -24,8 +26,10 @@ client.on("guildDelete", guild => {
     	guild.channels.cache.get("702228736988413954")
     	.then(channel => {
     		channel.send("Left a guild: **" + guild.name + "**");
-    	});
-    });
+    	})
+    	.catch(console.error);
+    })
+    .catch(console.error);
 });
 
 client.on('message', message => {
