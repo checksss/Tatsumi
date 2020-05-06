@@ -4,7 +4,8 @@
   "description": "A Discord Bot to play some music for servers",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "stable": "node server.js",
+    "second": "node server2.js"
   },
   "engines": {
     "node": "10.x"

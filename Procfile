@@ -1,1 +1,2 @@
-worker: node server.js
+worker: node stable
+worker2: node second

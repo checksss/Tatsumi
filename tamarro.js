@@ -48,4 +48,3 @@ client.on('ready', () => {
 	getGuildsNumber();
 	client.setInterval(getGuildsNumber, pingFrequency);
 });
-client.login(process.env.TOKEN);
