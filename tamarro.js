@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const active = new Map();
-pingFrequency = (30 * 1000);
+const pingFrequency = (30 * 1000);
 
 const prefix = "%";
 const ownerID = '480987124405895168';

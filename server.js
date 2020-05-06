@@ -5,5 +5,3 @@ const shard = new ShardingManager('./tamarro.js', {
 });
 
 shard.spawn(2);
-
-shard.on('launch', shard => console.log(`[SHARD] Shard ${shard.id}/${shard.totalShards}`));
