@@ -1,0 +1,31 @@
+{
+    "name": "UltimateTamarro",
+    "description": "A good and functional Discord music bot in node.js.",
+    "repository": "https://github.com/ItzLightyHD/UltimateTamarro",
+    "logo": "https://raw.githubusercontent.com/ItzLightyHD/UltimateTamarro/master/logo.png",
+    "keywords": ["node", "discord", "youtube"],
+    "image": "heroku/nodejs",
+    "buildpacks": [
+      {
+        "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+      },
+      {
+        "url": "heroku/nodejs"
+      }
+    ],
+    "env": {
+      "BOT_TOKEN": {
+        "description": "The token of your Discord Bot",
+        "required": "true"
+      },
+      "OWNERID": {
+        "description": "Your Discord user ID, needed for some commands...",
+        "required": "true"
+      },
+      "PREFIX": {
+        "description": "The prefix you want to use with the bot.",
+        "value": "!",
+        "required": "true"
+      }
+    }  
+  }

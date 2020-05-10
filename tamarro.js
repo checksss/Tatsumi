@@ -4,8 +4,8 @@ const client = new Discord.Client();
 const active = new Map();
 const pingFrequency = (30 * 1000);
 
-const prefix = "%";
-const ownerID = '480987124405895168';
+const prefix = process.env.PREFIX;
+const ownerID = process.env.OWNERID;
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
