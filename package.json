@@ -1,5 +1,5 @@
 {
-  "name": "UltimateTamarro",
+  "name": "ultimatetamarro",
   "version": "0.0.1",
   "description": "A Discord Bot to play some music for servers",
   "main": "server.js",
@@ -7,16 +7,17 @@
     "stable": "node server.js"
   },
   "engines": {
-    "node": "10.x"
+    "node": "12x"
   },
   "dependencies": {
-    "bcrypt":"4.0.1",
+    "bcrypt": "4.0.1",
     "request": "2.88.2",
     "discord.js": "^12.2.0",
-    "ytdl-core": "^2.1.1",
+    "ytdl-core": "^2.1.2",
     "http": "^0.0.0",
-    "node-opus": "^0.3.3",
-    "ffmpeg-binaries": "^4.0.0",
-    "yt-search": "^1.1.2"
+    "@discordjs/opus": "^0.3.2",
+    "ffmpeg-static": "^4.2.1",
+    "yt-search": "^1.1.2",
+    "express": "^4.17.1"
   }
 }

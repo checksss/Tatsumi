@@ -38,7 +38,7 @@ async function play(client, ops, data) {
   client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing **${data.queue[0].songTitle}** | Requested by ${data.queue[0].requester}`);
   
   data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { type: 'opus' }));
-  data.dispatcher.setVolume(40/100);
+  data.dispatcher.setVolume(50/100);
   data.dispatcher.guildID = data.guildID;
   
   data.dispatcher.once('finish', function() {
