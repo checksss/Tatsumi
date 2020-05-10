@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const active = new Map();
 const pingFrequency = (30 * 1000);
 
-const prefix = "./";
+const prefix = "%";
 const ownerID = '480987124405895168';
 
 client.on("guildCreate", guild => {
@@ -38,7 +38,7 @@ client.on('message', message => {
 function getGuildsNumber() {
 	client.shard.fetchClientValues('guilds.cache.size')
 	.then(results => {
-		return client.user.setActivity(`./help | ./invite | ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`);
+		return client.user.setActivity(`%help | %invite | ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`);
 	})
 	.catch(console.error);
 }
