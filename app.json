@@ -1,6 +1,6 @@
 {
     "name": "UltimateTamarro",
-    "description": "A good and functional Discord music bot in node.js.",
+    "description": "A good and functional Discord music and moderation bot in node.js.",
     "repository": "https://github.com/ItzLightyHD/UltimateTamarro",
     "logo": "https://raw.githubusercontent.com/ItzLightyHD/UltimateTamarro/master/logo.png",
     "keywords": ["node", "discord", "youtube"],
@@ -20,6 +20,10 @@
       },
       "OWNERID": {
         "description": "Your Discord user ID, needed for some commands...",
+        "required": "true"
+      },
+      "BOT_INVITE": {
+        "description": "Invite link for the bot",
         "required": "true"
       },
       "PREFIX": {
