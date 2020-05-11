@@ -14,7 +14,7 @@
       }
     ],
     "env": {
-      "BOT_TOKEN": {
+      "TOKEN": {
         "description": "The token of your Discord Bot",
         "required": "true"
       },
