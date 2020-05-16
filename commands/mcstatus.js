@@ -2,7 +2,7 @@ const request = require('request');
 
 exports.run = (client, message, args, ops) => {
 	const url = 'https://api.mcsrvstat.us/2/' + args[0] + ':' + args[1];
-	if(!args[0] || !args[1]) return message.reply('Please, input the IP of the Minecraft server');
+	if(!args[0]) return message.reply('Please, input the IP of the Minecraft server');
 	var port = args[1];
 	if(!port) {
 		let mcpestatus = message.guild.roles.cache.find(r => r.name === "_mcpestatus");
