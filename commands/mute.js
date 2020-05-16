@@ -23,9 +23,11 @@ exports.run = async (client, message, args, ops) => {
 	message.guild.channels.cache.forEach((channel) => {
 		channel.updateOverwrite(muteRole, {
 			"SEND_MESSAGES": false,
+			"ATTACH_FILES": false,
 			"SEND_TTS_MESSAGES": false,
 			"ADD_REACTIONS": false,
-			"SPEAK": false
+			"SPEAK": false,
+			"STREAM": false
 		});
 	});
 	const muteConfirm = new Discord.MessageEmbed()
