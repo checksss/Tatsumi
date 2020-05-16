@@ -1,9 +1,9 @@
 const request = require('request');
 
 exports.run = (client, message, args, ops) => {
-	const url = 'https://api.mcsrvstat.us/2/' + args[0] + ':' + args[1];
-	if(!args[0]) return message.reply('Please, input the IP of the Minecraft server');
 	var port = args[1];
+	const url = 'https://api.mcsrvstat.us/2/' + args[0] + ':' + port;
+	if(!args[0]) return message.reply('Please, input the IP of the Minecraft server');
 	if(!port) {
 		let mcpestatus = message.guild.roles.cache.find(r => r.name === "_mcpestatus");
 		if(mcpestatus) {
@@ -18,7 +18,7 @@ exports.run = (client, message, args, ops) => {
 			return message.reply('Error getting Minecraft server status...');
 		}
 		body = JSON.parse(body);
-		var status = '**Status of ' + args[0] + ':' + args[1] + '**\n\nServer currently is offline.';
+		var status = '**Status of ' + args[0] + ':' + port + '**\n\nServer currently is offline.';
 		if(body.online == true) {
 			status = '**Status of ' + body.motd.clean + '**\n\nServer currently is online';
 			status += '\n__Online:__ ' + body.players.online + '/' + body.players.max;
