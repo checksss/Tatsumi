@@ -2,9 +2,8 @@ const request = require('request');
 
 exports.run = (client, message, args, ops) => {
 	var port = args[1];
-	const url = 'https://api.mcsrvstat.us/2/' + args[0] + ':' + port;
 	if(!args[0]) return message.reply('Please, input the IP of the Minecraft server');
-	if(!port) {
+	if(!args[1]) {
 		let mcpestatus = message.guild.roles.cache.find(r => r.name === "_mcpestatus");
 		if(mcpestatus) {
 			port = 19132;
@@ -12,6 +11,7 @@ exports.run = (client, message, args, ops) => {
 			port = 25565
 		}
 	}
+	const url = 'https://api.mcsrvstat.us/2/' + args[0] + ':' + port;
 	request(url, function(err, response, body) {
 		if(err) {
 			console.log(err);
