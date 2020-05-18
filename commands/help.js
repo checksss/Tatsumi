@@ -14,6 +14,7 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}volume__ » Set the bot volume when playing a song`;
   helpMsg += `\n__${prefix}clear__ (or __${prefix}purge__) » Clear many messages at time`;
   helpMsg += `\n__${prefix}mcstatus__ » Get status of a Minecraft server (Java and MCPE)`;
+  helpMsg += `**Tip:** If you add a role named ___mcpestatus__, the default port for the status command will be 19132.`;
   helpMsg += `\n__${prefix}mcskin__ (or __${prefix}skin__) » Get a skin using username (Java only usernames)`;
   helpMsg += `\n__${prefix}ban__ » Helps you to ban a member by using a command`;
   helpMsg += `\n__${prefix}kick__ » Helps you to kick a member by using a command`;
