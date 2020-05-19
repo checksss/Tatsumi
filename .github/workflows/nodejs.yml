@@ -25,7 +25,7 @@ jobs:
         BOT_INVITE: https://discordapp.com/api/oauth2/authorize?client_id=698085345086013480&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.gg%2FHKqb6V7&scope=bot
         OWNERID: 480987124405895168
         PREFIX: "%"
-        TOKEN: Njk4MDg1MzQ1MDg2MDEzNDgw.XpcVqw.N-nlGjWMotwIRCoOt3x1G6CUfPs
+        TOKEN: ${{ secrets.TOKEN }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
