@@ -23,5 +23,6 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}unmute__ » Unmute a user in your Discord server`;
   helpMsg += `\n__${prefix}8ball__ » Ask the magic 8ball about your future`;
   helpMsg += `\n__${prefix}meme__ » Get a random meme from meme subreddits`;
+  helpMsg += `\n__${prefix}covid19__ » Get the total cases and deaths of the day for this pandemic situation`;
   message.author.send(helpMsg);
 }
