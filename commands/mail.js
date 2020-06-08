@@ -10,7 +10,8 @@ exports.run = (client, message, args, ops) => {
     var domain = "universemail.tk";
     request(url, {
         headers: {
-            "PddToken": "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA"
+            "PddToken": "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA",
+            "Content-Type": "application/json"
         },
         method: "POST",
         json: false,
