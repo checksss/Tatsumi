@@ -15,7 +15,7 @@ exports.run = (client, message, args, ops) => {
         },
         method: "POST",
         body: `domain=${domain}&login=${args[0]}&password=${password}`,
-    }, function(err, response, body) {
+    }, function(err, response, req, body) {
         if(err) {
             console.log(err);
             return message.reply("Can't create mail at the moment, try again later...");
