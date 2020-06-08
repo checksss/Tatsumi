@@ -1,7 +1,7 @@
 {
-  "name": "ultimatetamarro",
+  "name": "expressbot",
   "version": "1.2.1",
-  "description": "A Discord Bot to play some music for servers",
+  "description": "A good and functional Discord music and moderation bot in node.js.",
   "main": "server.js",
   "scripts": {
     "stable": "node server.js"

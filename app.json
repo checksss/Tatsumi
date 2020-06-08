@@ -1,8 +1,8 @@
 {
-    "name": "UltimateTamarro",
+    "name": "Express",
     "description": "A good and functional Discord music and moderation bot in node.js.",
-    "repository": "https://github.com/ItzLightyHD/UltimateTamarro",
-    "logo": "https://raw.githubusercontent.com/ItzLightyHD/UltimateTamarro/master/logo.png",
+    "repository": "https://github.com/ItzLightyHD/Express",
+    "logo": "https://raw.githubusercontent.com/ItzLightyHD/Express/master/logo.png",
     "keywords": ["node", "discord", "youtube"],
     "image": "heroku/nodejs",
     "buildpacks": [
