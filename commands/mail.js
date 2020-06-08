@@ -8,8 +8,8 @@ exports.run = (client, message, args, ops) => {
         password = Math.random().toString(36).slice(-8);
     }
     var url = "https://pddimp.yandex.ru/api2/admin/email/add";
-    var pddtoken = "CJ2KUWBDSR476JZ2QYPG5D6VKXQYBTWY3TCS5MEI5VBQWVJBV6PA";
-    var domain = "expressmail.tk";
+    var pddtoken = "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA";
+    var domain = "universemail.tk";
     request(url, {
         headers: {
             "PddToken": pddtoken,
