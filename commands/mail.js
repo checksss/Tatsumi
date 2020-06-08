@@ -21,7 +21,7 @@ exports.run = (client, message, args, ops) => {
             return message.reply("Can't create mail at the moment, try again later...");
         }
         console.log(response);
-        if(req.body.error == "occupied") return message.reply("Username is already occupied");
+        if(req.body.body.error == "occupied") return message.reply("Username is already occupied");
         message.reply("I'm sending you a private message with the new mailbox informations");
         message.author.send("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
     })
