@@ -20,7 +20,9 @@ exports.run = (client, message, args, ops) => {
             console.log(err);
             return message.reply("Can't create mail at the moment, try again later...");
         }
+        mailparse = JSON.parse(response.body);
         console.log(response);
+        if(mailparse.error == "occupied") return message.reply("Username is not available");
         message.reply("I'm sending you a private message with the new mailbox informations");
         message.author.send("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
     })
