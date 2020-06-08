@@ -26,5 +26,6 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}meme__ » Get a random meme from meme subreddits`;
   helpMsg += `\n__${prefix}covid19__ » Get the total cases and deaths of the day for this pandemic situation`;
   helpMsg += `\n__${prefix}fotd__ » Get a random fact for your day (for realistic experience use it once a day)`;
+  helpMsg += `\n__${prefix}mail__ (**BETA**) » Create an email easily (powered by Yandex)`;
   message.author.send(helpMsg);
 }
