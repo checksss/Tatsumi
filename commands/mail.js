@@ -1,5 +1,4 @@
 const request = require('request');
-const mailRequest = require('request');
 const Discord = require('discord.js');
 
 exports.run = (client, message, args, ops) => {
@@ -8,18 +7,9 @@ exports.run = (client, message, args, ops) => {
     if(!args[1]) {
         password = Math.random().toString(36).slice(-8);
     }
-    const providerUrl = "https://itzlightyhd.7m.pl/mail.json";
     var url = "https://pddimp.yandex.ru/api2/admin/email/add";
-    var pddtoken = "";
-    var domain = "";
-    mailRequest(providerUrl, function(err, response, body) {
-        if(err) {
-            return message.reply("Can't get the provider informations, try again later");
-        }
-        body = JSON.parse(body);
-        pddtoken = body.pddtoken;
-        domain = body.domain;
-    })
+    var pddtoken = "CJ2KUWBDSR476JZ2QYPG5D6VKXQYBTWY3TCS5MEI5VBQWVJBV6PA";
+    var domain = "expressmail.tk";
     request(url, {
         headers: {
             "PddToken": pddtoken,
