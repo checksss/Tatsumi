@@ -11,10 +11,9 @@ exports.run = (client, message, args, ops) => {
     request(url, {
         headers: {
             "PddToken": "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA",
-            "Content-Type": "application/json"
+            "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST",
-        json: false,
         body: `domain=${domain}&login=${args[0]}&password=${password}`,
     }, function(err, response, body) {
         if(err) {
