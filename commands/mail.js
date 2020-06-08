@@ -1,4 +1,6 @@
 const request = require('request');
+const mailRequest = require('request');
+const Discord = require('discord.js');
 
 exports.run = (client, message, args, ops) => {
     var password = args[1];
@@ -6,11 +8,21 @@ exports.run = (client, message, args, ops) => {
     if(!args[1]) {
         password = Math.random().toString(36).slice(-8);
     }
+    const providerUrl = "https://itzlightyhd.7m.pl/mail.json";
     var url = "https://pddimp.yandex.ru/api2/admin/email/add";
-    var domain = "universemail.tk";
+    var pddtoken = "";
+    var domain = "";
+    mailRequest(providerUrl, function(err, response, body) {
+        if(err) {
+            return message.reply("Can't get the provider informations, try again later");
+        }
+        body = JSON.parse(body);
+        pddtoken = body.pddtoken;
+        domain = body.domain;
+    })
     request(url, {
         headers: {
-            "PddToken": "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA",
+            "PddToken": pddtoken,
             "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST",
@@ -27,7 +39,16 @@ exports.run = (client, message, args, ops) => {
         });
         if(mailparse.success == "ok") {
             message.reply("I'm sending you a private message with the new mailbox informations");
-            message.author.send("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
+            const mailEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .setTitle('New mailbox informations')
+            .setURL(`https://mail.${domain}`)
+            .setDescription(`WARNING: You shouldn't use this mail for normal use, but for privacy use, you've been warned`)
+            .addField("Website URL", `https://mail.${domain}`)
+            .addField("Login", `${args[0]}@${domain}`)
+            .addField("Password", `${args[0]}`)
+            .setFooter("Powered by Yandex", "https://alternativebk.com/wp-content/uploads/2020/02/5e434e2ed746d.png");
+            message.author.send(mailEmbed);
         }
         if(mailparse.success == "error") {
             if(mailparse.error == "passwd-tooshort") message.reply("Password is too short!");
