@@ -13,6 +13,7 @@ exports.run = (client, message, args, ops) => {
             "PddToken": "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA"
         },
         method: "POST",
+        json: false,
         body: `domain=${domain}&login=${args[0]}&password=${password}`,
     }, function(err, response, body) {
         if(err) {
