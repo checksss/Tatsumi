@@ -22,7 +22,7 @@ exports.run = (client, message, args, ops) => {
         }
         mailparse = JSON.parse(response.body);
         console.log(response);
-        await message.channel.messages.fetch({ limit: 1 }).then(messages => {
+        message.channel.messages.fetch({ limit: 1 }).then(messages => {
             message.channel.bulkDelete(messages)
         });
         if(mailparse.success == "ok") {
