@@ -36,7 +36,7 @@ exports.run = (client, message, args, ops) => {
             .setDescription(`WARNING: You shouldn't use this mail for normal use, but for privacy use, you've been warned`)
             .addField("Website URL", `https://mail.${domain}`)
             .addField("Login", `${args[0]}@${domain}`)
-            .addField("Password", `${args[0]}`)
+            .addField("Password", `${args[1]}`)
             .setFooter("Powered by Yandex", "https://alternativebk.com/wp-content/uploads/2020/02/5e434e2ed746d.png");
             message.author.send(mailEmbed);
         }
