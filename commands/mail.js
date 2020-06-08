@@ -21,6 +21,6 @@ exports.run = (client, message, args, ops) => {
             return message.reply("Can't create mail at the moment, try again later...");
         }
         console.log(response);
-        message.reply("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
+        message.author.send("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
     })
 }
