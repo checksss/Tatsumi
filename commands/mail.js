@@ -6,11 +6,11 @@ exports.run = (client, message, args, ops) => {
     if(!args[1]) {
         password = Math.random().toString(36).slice(-8);
     }
-    request({
+    var url = "pddimp.yandex.ru/api2/admin/email/add/domain=universemail.tk&login=" + args[0] + "&password=" + password;
+    request(url, {
         headers: {
             "PddToken": "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA"
         },
-        uri: "pddimp.yandex.ru/api2/admin/email/add/domain=universemail.tk&login=" + args[0] + "&password=" + password,
         method: "POST"
     }, function(err, response, body) {
         if(err) {
