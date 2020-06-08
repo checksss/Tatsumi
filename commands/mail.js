@@ -22,8 +22,16 @@ exports.run = (client, message, args, ops) => {
         }
         mailparse = JSON.parse(response.body);
         console.log(response);
-        if(mailparse.error == "occupied") return message.reply("Username is not available");
-        message.reply("I'm sending you a private message with the new mailbox informations");
-        message.author.send("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
+        await message.channel.messages.fetch({ limit: 1 }).then(messages => {
+            message.channel.bulkDelete(messages)
+        });
+        if(mailparse.success == "ok") {
+            message.reply("I'm sending you a private message with the new mailbox informations");
+            message.author.send("**New mailbox details**\n__Website:__ http://mail.universemail.tk\n__Login:__ " + args[0] + "@universemail.tk\n__Password:__ " + password);
+        }
+        if(mailparse.success == "error") {
+            if(mailparse.error == "passwd-tooshort") message.reply("Password is too short!");
+            if(mailparse.error == "occupied") message.reply("Username is not available");
+        }
     })
 }
