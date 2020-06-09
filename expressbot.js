@@ -30,6 +30,7 @@ client.on('message', message => {
 		}
 		let commandFile = require(`./commands/${cmd}.js`);
 		commandFile.run(client, message, args, ops);
+		if(!commandFile) return message.reply("Command doesn't exist!");
 	} catch (e) {
 		console.log(e.stack);
 	}
