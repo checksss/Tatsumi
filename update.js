@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
-const packagejson = JSON.parse(require("./package.json"));
+const update = JSON.parse(require("./update.json"));
 
 var autoupdater = new at({
     pathToJson: '',
@@ -19,7 +19,7 @@ var autoupdater = new at({
 
 autoupdater.on('check.out-dated', function(v_old, v){
     console.log("[Express Service] Updating to version " + packagejson.version + "...");
-    client.users.get("480987124405895168").send(packagejson.updateDescription);
+    client.users.get("480987124405895168").send(update.description);
 });
 
 autoupdater.on('update.extracted', function(){

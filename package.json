@@ -13,7 +13,6 @@
     "repo": "ItzLightyHD/Express",
     "branch": "master"
   },
-  "updateDescription": "**Update v.1.2.4**\n- Added automatic updates, so now the bot will be up to date, planning to add also translations...",
   "dependencies": {
     "discord.js": "^12.2.0",
     "@discordjs/opus": "^0.3.2",
