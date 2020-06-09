@@ -23,7 +23,7 @@ exports.run = (client, message, args, ops) => {
             return message.reply("Can't create mail at the moment, try again later...");
         }
         var mailparse = JSON.parse(response.body);
-        console.log(`${message.author.tag} requested a new mailbox, this is the log:\n${mailparse}`);
+        console.log(`${message.author.tag} requested a new mailbox, this is the log:\n${response.body}`);
         message.channel.messages.fetch({ limit: 1 }).then(messages => {
             message.channel.bulkDelete(messages)
         });
