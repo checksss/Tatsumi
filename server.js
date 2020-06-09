@@ -1,5 +1,5 @@
 const { ShardingManager } = require('discord.js');
-const updatejs = require('./update.js');
+const updatejs = require('./update.js').default;
 const manager = new ShardingManager('./expressbot.js', {
   token: process.env.TOKEN,
   autoSpawn: true
