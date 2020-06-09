@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const at = require('auto-updater');
 const fs = require('fs');
-const updateDescription = "**Update v.1.2.4**\n- Added automatic updates, so now the bot will be up to date, planning to add also translations...";
+const updateDescription = "**Update v.1.2.5**\n- Added automatic updates, so now the bot will be up to date, planning to add also translations...";
 
 const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
