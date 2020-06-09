@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const embed = require('discord.js');
 const client = new Discord.Client();
 const active = new Map();
 const pingFrequency = (30 * 1000);

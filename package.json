@@ -1,6 +1,6 @@
 {
   "name": "expressbot",
-  "version": "1.2.1",
+  "version": "1.2.4",
   "description": "A good and functional Discord music and moderation bot in node.js.",
   "main": "server.js",
   "scripts": {
@@ -9,12 +9,18 @@
   "engines": {
     "node": "12.16.3"
   },
+  "auto-updater": {
+    "repo": "ItzLightyHD/Express",
+    "branch": "master"
+  },
+  "updateDescription": "**Update v.1.2.4**\n- Added automatic updates, so now the bot will be up to date, planning to add also translations...",
   "dependencies": {
     "discord.js": "^12.2.0",
     "@discordjs/opus": "^0.3.2",
     "ffmpeg-static": "^4.2.1",
     "request": "2.88.2",
     "yt-search": "^1.1.2",
-    "ytdl-core": "^2.1.2"
+    "ytdl-core": "^2.1.2",
+    "auto-updater": "1.0.2"
   }
 }
