@@ -28,6 +28,7 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}8ball__ » Ask the magic 8ball about your future`;
   helpMsg += `\n__${prefix}meme__ » Get a random meme from meme subreddits`;
   helpMsg += `\n__${prefix}fotd__ » Get a random fact for your day (for realistic experience use it once a day)`;
+  helpMsg += `\n__${prefix}mcleaks__ » Validate and show to your server members what MCLeaks account you will use to play Minecraft with them (after using this, renew the token)`;
   helpMsg += `\n**Utility**`;
   helpMsg += `\n__${prefix}mail__ (**BETA**) » Create an email easily (powered by Yandex)`;
   helpMsg += `\n**WARNING:** You shouldn't use these mails for normal use, but for privacy use`;
