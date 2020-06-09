@@ -5,3 +5,8 @@ const shard = new ShardingManager('./expressbot.js', {
 });
 
 shard.spawn(2);
+
+try {
+  shard.spawn(2);
+} catch (err) {
+}
