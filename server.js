@@ -1,5 +1,4 @@
 const { ShardingManager } = require('discord.js');
-const updatejs = require('./update.js');
 const manager = new ShardingManager('./expressbot.js', {
   token: process.env.TOKEN,
   autoSpawn: true
@@ -10,5 +9,3 @@ try {
 } catch (err) {
 }
 manager.on('shardCreate', (shard) => console.log(`[Express Service] Shard ${shard.id} launched successfully`));
-
-updatejs.run();

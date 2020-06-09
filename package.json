@@ -19,7 +19,6 @@
     "ffmpeg-static": "^4.2.1",
     "request": "2.88.2",
     "yt-search": "^1.1.2",
-    "ytdl-core": "^2.1.2",
-    "auto-updater": "1.0.2"
+    "ytdl-core": "^2.1.2"
   }
 }
