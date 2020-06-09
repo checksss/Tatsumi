@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const at = require('auto-updater');
 const fs = require('fs');
-const updatejson = require("./update.json");
+const updateDescription = "**Update v.1.2.4**\n- Added automatic updates, so now the bot will be up to date, planning to add also translations...";
 
 const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
@@ -19,16 +19,16 @@ var autoupdater = new at({
 });
 
 autoupdater.on('check.out-dated', function(v_old, v){
-    console.log("[Express Service] Updating to version " + packagejson.version + "...");
-    client.users.get("480987124405895168").send(update.description);
+    console.log("[Express Service] Updating to version " + v + "...");
 });
 
 autoupdater.on('update.extracted', function(){
-    fs.readdir("./commands/", (err, files) => {
+    fs.readdir("./", (err, files) => {
         files.forEach(file => {
             delete require.cache[require.resolve(file)];
         });
     });
+    client.users.get(ownerID).send(updateDescription);
 });
 
 autoupdater.fire('check');
