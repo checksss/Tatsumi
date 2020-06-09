@@ -40,7 +40,7 @@ function getGuildsNumber() {
 	.then(results => {
 		return client.user.setActivity(`${prefix}help | ${prefix}invite | ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`);
 	})
-	.catch(err);
+	.catch(console.error);
 }
 
 client.on('ready', () => {
