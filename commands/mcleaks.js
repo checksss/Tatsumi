@@ -19,6 +19,7 @@ exports.run = (client, message, args, ops) => {
             message.reply("Can't get any MCLeaks information at the moment, try again later");
         }
         console.log(`${message.author.tag} requested MCLeaks account informations, this is the log:\n${response.body}`);
+        console.log(`Body request:\n${mcleaksrequest}`);
         var mcleaksparse = JSON.parse(response.body);
         if(mcleaksparse.success == false) return message.reply("Token is invalid, try another one.");
         let commandFile = require("./mcskin.js");
