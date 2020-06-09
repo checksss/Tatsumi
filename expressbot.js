@@ -30,10 +30,10 @@ client.on('message', message => {
             active: active
 		}
 		let commandFile = require(`./commands/${cmd}.js`);
-		if(!commandFile) return message.reply("Command doesn't exist!");
 		commandFile.run(client, message, args, ops);
 	} catch (e) {
-		console.log(e.stack);
+		console.log(`${message.author.tag} issued command '${prefix}${cmd}', but it doesn't exist`);
+		message.reply(`Unknown command. Try __${prefix}help__ for a list of commands.`);
 	}
 });
 
