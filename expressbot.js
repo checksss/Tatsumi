@@ -30,8 +30,8 @@ client.on('message', message => {
             active: active
 		}
 		let commandFile = require(`./commands/${cmd}.js`);
-		commandFile.run(client, message, args, ops);
 		if(!fs.existsSync(`./commands/${cmd}.js`)) return message.reply("Command doesn't exist!");
+		commandFile.run(client, message, args, ops);
 	} catch (e) {
 		console.log(e.stack);
 	}
