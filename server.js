@@ -1,6 +1,6 @@
 const { ShardingManager } = require('discord.js');
 const updateFrequency = (10 * 1000);
-const updatejs = require('./update.js');
+const updatejs = require('/app/update.js');
 const manager = new ShardingManager('./expressbot.js', {
   token: process.env.TOKEN,
   autoSpawn: true

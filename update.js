@@ -2,10 +2,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const at = require('auto-updater');
 const fs = require('fs');
+const updatejson = require("./update.json");
 
 const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
-const update = JSON.parse(require("./update.json"));
+const update = JSON.parse(updatejson);
 
 var autoupdater = new at({
     pathToJson: '',
@@ -29,5 +30,7 @@ autoupdater.on('update.extracted', function(){
         });
     });
 });
+
+autoupdater.fire('check');
 
 client.login(process.env.TOKEN);
