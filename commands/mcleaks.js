@@ -16,7 +16,7 @@ exports.run = (client, message, args, ops) => {
     }, function(err, response, req, body) {
         if (err) {
             console.log(err);
-            message.reply("Can't get any MCLeaks information at the moment, try again later");
+            return message.reply("Can't get any MCLeaks information at the moment, try again later");
         }
         console.log(`${message.author.tag} requested MCLeaks account informations, this is the log:\n${response.body}`);
         console.log(`Body request:\n${mcleaksrequest}`);
