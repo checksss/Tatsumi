@@ -12,7 +12,7 @@ exports.run = (client, message, args, ops) => {
             "Content-Type": "application/json"
         },
         method: "POST",
-        body: mcleaksrequest
+        body: JSON.stringify(mcleaksrequest)
     }, function(err, response, req, body) {
         if (err) {
             console.log(err);
