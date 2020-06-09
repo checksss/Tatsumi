@@ -3,6 +3,7 @@ const embed = require('discord.js');
 const client = new Discord.Client();
 const active = new Map();
 const pingFrequency = (30 * 1000);
+const fs = require('fs');
 
 const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
@@ -30,7 +31,7 @@ client.on('message', message => {
 		}
 		let commandFile = require(`./commands/${cmd}.js`);
 		commandFile.run(client, message, args, ops);
-		if(!commandFile) return message.reply("Command doesn't exist!");
+		if(!fs.existsSync(`./commands/${cmd}.js`)) return message.reply("Command doesn't exist!");
 	} catch (e) {
 		console.log(e.stack);
 	}
