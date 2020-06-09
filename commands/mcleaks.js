@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args, ops) => {
     var url = "https://auth.mcleaks.net/v1/redeem";
-    if(!args[0]) return message.reply("No, this is not a generator, but it is a MCLeaks token validator.\nTo get a token, go to https://mcleaks.net and click **GET MC ACCOUNT NOW**, then copy the token after the command, and you'll get some infos");
+    if(!args[0]) return message.reply("No, this is not a generator, but it is a MCLeaks token validator.\nTo get a token, go to https://mcleaks.net and click **GET MC ACCOUNT NOW**, then copy the token after the command, and you'll get some infos.\nIf you want to use it in Minecraft, download the MCLeaks Authenticator and renew the alt (https://mcleaks.net/renew).");
     request(url, {
         headers: {
             "Content-Type": "application/json"
