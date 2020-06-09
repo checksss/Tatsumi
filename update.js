@@ -1,4 +1,4 @@
-export default function() {
+exports.run = () => {
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
