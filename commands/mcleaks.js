@@ -4,16 +4,13 @@ const Discord = require('discord.js');
 exports.run = (client, message, args, ops) => {
     var url = "https://auth.mcleaks.net/v1/redeem";
     if(!args[0]) return message.reply("No, this is not a generator, but it is a MCLeaks token validator.\nTo get a token, go to https://mcleaks.net and click **GET MC ACCOUNT NOW**, then copy the token after the command, and you'll get some infos");
-    var mcleaksrequest = {
-        token: args[0]
-    }
     request(url, {
         headers: {
             "Content-Type": "application/json"
         },
         method: "POST",
-        body: JSON.stringify(mcleaksrequest)
-    }, function(err, response, req, body, mcleaksrequest) {
+        body: JSON.stringify({"token":args[0]})
+    }, function(err, response, req, body) {
         if (err) {
             console.log(err);
             return message.reply("Can't get any MCLeaks information at the moment, try again later");
