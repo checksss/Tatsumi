@@ -3,6 +3,7 @@ const embed = require('discord.js');
 const client = new Discord.Client();
 const active = new Map();
 const pingFrequency = (30 * 1000);
+const waitingTime = (10 * 1000);
 const fs = require('fs');
 
 const prefix = process.env.PREFIX;
@@ -46,7 +47,7 @@ function getGuildsNumber() {
 }
 
 client.on('ready', () => {
-	getGuildsNumber();
-	client.setInterval(getGuildsNumber, pingFrequency);
+	client.setTimeout(getGuildsNumber, waitingTime)
+	.then(client.setInterval(getGuildsNumber, pingFrequency));
 });
 client.login(process.env.TOKEN);
