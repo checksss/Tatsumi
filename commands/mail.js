@@ -41,8 +41,10 @@ exports.run = (client, message, args, ops) => {
             message.author.send(mailEmbed);
         }
         if(mailparse.success == "error") {
-            if(mailparse.error == "passwd-tooshort") message.reply("Password is too short!");
-            if(mailparse.error == "occupied") message.reply("Username is not available");
+            var replyError = "An error occured, try to contact the bot administrator to resolve this bug";
+            if(mailparse.error == "passwd-tooshort") replyError = "Password is too short!";
+            if(mailparse.error == "occupied") replyError = "Username is not available";
+            message.reply(replyError);
         }
     })
 }
