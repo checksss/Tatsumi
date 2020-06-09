@@ -1,3 +1,5 @@
+module.exports = function() {
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const at = require('auto-updater');
@@ -33,3 +35,4 @@ autoupdater.on('update.extracted', function(){
 autoupdater.fire('check');
 
 client.login(process.env.TOKEN);
+}
