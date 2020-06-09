@@ -18,12 +18,12 @@ var autoupdater = new at({
 });
 
 autoupdater.on('check.out-dated', function(v_old, v){
-    console.log("Updating to version " + packagejson.version + "...");
+    console.log("[Express Service] Updating to version " + packagejson.version + "...");
     client.users.get("480987124405895168").send(packagejson.updateDescription);
 });
 
 autoupdater.on('update.extracted', function(){
-    fs.readdirSync("./commands/", (err, files) => {
+    fs.readdir("./commands/", (err, files) => {
         files.forEach(file => {
             delete require.cache[require.resolve(file)];
         });

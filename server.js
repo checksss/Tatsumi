@@ -1,4 +1,5 @@
 const { ShardingManager } = require('discord.js');
+const updateFrequency = (10 * 1000);
 const manager = new ShardingManager('./expressbot.js', {
   token: process.env.TOKEN,
   autoSpawn: true
@@ -10,5 +11,4 @@ try {
 }
 manager.on('shardCreate', (shard) => console.log(`[Express Service] Shard ${shard.id} launched successfully`));
 
-const pingFrequency = (10 * 1000);
-setTimeout(require(`./update.js`).run, pingFrequency);
+setTimeout(require(`./update.js`).run, updateFrequency);
