@@ -47,7 +47,7 @@ function getGuildsNumber() {
 }
 
 client.on('ready', () => {
-	client.setTimeout(getGuildsNumber, waitingTime)
+	setTimeout(getGuildsNumber, waitingTime)
 	.then(client.setInterval(getGuildsNumber, pingFrequency));
 });
 client.login(process.env.TOKEN);
