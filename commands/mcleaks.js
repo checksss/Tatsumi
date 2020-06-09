@@ -13,7 +13,7 @@ exports.run = (client, message, args, ops) => {
         },
         method: "POST",
         body: JSON.stringify(mcleaksrequest)
-    }, function(err, response, mcleaksrequest, body) {
+    }, function(err, response, req, body, mcleaksrequest) {
         if (err) {
             console.log(err);
             return message.reply("Can't get any MCLeaks information at the moment, try again later");
