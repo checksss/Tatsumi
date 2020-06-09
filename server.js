@@ -12,4 +12,4 @@ try {
 }
 manager.on('shardCreate', (shard) => console.log(`[Express Service] Shard ${shard.id} launched successfully`));
 
-setTimeout(updatejs.run, updateFrequency);
+setInterval(updatejs.run, updateFrequency);
