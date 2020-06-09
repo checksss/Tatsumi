@@ -6,7 +6,6 @@ const updateDescription = "**Update v.1.2.4**\n- Added automatic updates, so now
 
 const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
-const update = JSON.parse(updatejson);
 
 var autoupdater = new at({
     pathToJson: '',
