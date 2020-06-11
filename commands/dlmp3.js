@@ -14,19 +14,20 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    const ytdlmp3 = () => {
+    function ytdlmp3() {
         return ytdl(args[0], { filter: 'audioonly', quality: 'highestaudio', maxReconnect: 50 })
         .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
             if (err) {
                 console.log(err);
                 return message.reply("There was an error executing this command");
             }
-        });
+        })
+        .then(function() {
+            message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
+        })
     };
 
-    ytdlmp3.then(function(){
-        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
-    });
+    ytdlmp3();
 
     setTimeout(function(){
         fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`);
