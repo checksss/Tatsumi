@@ -1,5 +1,6 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
+const heyFrequency = (60 * 1000);
 
 exports.run = async (client, message, args, ops) => {
     if (!args[0]) return message.reply("Please input an url following the command!");
@@ -22,5 +23,5 @@ exports.run = async (client, message, args, ops) => {
 
     message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: filename + '.mp3'}]});
     
-    setTimeout(fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`), 600 * 1000);
+    setTimeout(fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`), heyFrequency);
 }
