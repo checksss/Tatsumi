@@ -12,6 +12,8 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
+    fs.writeFile('./tempdl/' + filename + '.mp3');
+
     ytdl(args[0], { filter: format => format.container === 'mp3' })
     .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'))
     .then(message.channel.send('**' + info.title + '**', files[{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]));
