@@ -18,7 +18,11 @@ exports.run = async (client, message, args, ops) => {
     var proc = new ffmpeg({source: stream});
 
     proc.setFfmpegPath('./tempdl/' + filename + '.mp3');
-    proc.withAudioCodec('libmp3lame').toFormat('mp3').run();
+    
+    proc.withAudioCodec('libmp3lame')
+    .toFormat('mp3')
+    .run()
+    .catch(console.log);
 
     setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 5 * 1000);
     
