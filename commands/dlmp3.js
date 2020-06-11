@@ -12,15 +12,10 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    fs.writeFile('./tempdl/' + filename + '.mp3', '', function(err) {
-        if (err) {
-            console.log(err);
-            return message.reply('There was an error on executing this command');
-        }
-        ytdl(args[0], { filter: format => format.container === 'mp3' })
-        .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'));
-        setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 10 * 1000);
-    });
+    ytdl(args[0], { filter: format => format.container === 'mp3' })
+    .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'));
+    
+    setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 10 * 1000);
     
     setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
 }
