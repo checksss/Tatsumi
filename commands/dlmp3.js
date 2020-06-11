@@ -20,6 +20,7 @@ exports.run = async (client, message, args, ops) => {
         ytdl(args[0], { filter: format => format.container === 'mp3' })
         .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'));
         setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 10 * 1000);
-    })
-    .then(setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000));
+    });
+    
+    setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
 }
