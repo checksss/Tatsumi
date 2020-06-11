@@ -1,6 +1,5 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
-const ffmpeg = require('ffmpeg');
 
 exports.run = async (client, message, args, ops) => {
     if (!args[0]) return message.reply("Please input an url following the command!");
@@ -16,7 +15,7 @@ exports.run = async (client, message, args, ops) => {
     let stream = ytdl(args[0], { filter: 'audioonly', format: 'mp3'})
     .pipe(fs.createWriteStream(`tempdl/${filename}.mp3`));
 
-    message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]});
+    message.channel.send('**' + info.title + '**', {files: [{attachment: `tempdl/${filename}.mp3`, name: filename + '.mp3'}]});
     
     setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
 }
