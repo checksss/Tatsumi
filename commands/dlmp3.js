@@ -21,5 +21,7 @@ exports.run = async (client, message, args, ops) => {
         }
     });
 
-    message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: filename + '.mp3'}]});
+    setTimeout(function(){
+        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: filename + '.mp3'}]});
+    }, 10000);
 }
