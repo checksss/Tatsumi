@@ -20,9 +20,7 @@ exports.run = async (client, message, args, ops) => {
     proc.setFfmpegPath('./tempdl/' + filename + '.mp3');
     proc.withAudioCodec('libmp3lame').toFormat('mp3').run();
 
-    proc.on('end', function() {
-        message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]});
-    });
+    setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 5 * 1000);
     
     setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
 }
