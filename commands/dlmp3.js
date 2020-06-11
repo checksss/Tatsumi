@@ -7,7 +7,7 @@ exports.run = async (client, message, args, ops) => {
     let validate = await ytdl.validateURL(args[0]);
     if (!validate) {
         let commandFile = require("./dev/searchdl.js");
-        commandFile.run(client, message, args, ops);
+        return commandFile.run(client, message, args, ops);
     }
 
     let info = await ytdl.getInfo(args[0]);
