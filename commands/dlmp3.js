@@ -12,10 +12,16 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    ytdl(args[0], { filter: format => format.container === 'mp3' })
-    .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'));
+    let stream = ytdl(args[0]);
     
-    setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 10 * 1000);
+    var proc = new ffmpeg({source: stream});
+
+    proc.setFfmpegPath('./tempdl/' + filename + '.mp3');
+    proc.withAudioCodec('libmp3lame').toFormat('mp3').run();
+
+    proc.on('end', function() {
+        message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]});
+    });
     
     setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
 }
