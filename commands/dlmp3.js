@@ -21,7 +21,12 @@ exports.run = async (client, message, args, ops) => {
         }
     });
 
+    message.reply("Wait a few seconds...")
+    .then(msg => {
+        msg.delete(10000);
+    });
+
     setTimeout(function(){
-        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: filename + '.mp3'}]});
+        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
     }, 10000);
 }
