@@ -14,7 +14,7 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    ytdl(args[0], { quality: 'highestaudio' })
+    ytdl(args[0], { quality: 'highestaudio', maxReconnect: 5 })
     .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
         if (err) {
             console.log(err);
