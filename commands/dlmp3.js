@@ -14,27 +14,26 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    ytdl(args[0], { quality: 'highestaudio', maxReconnect: 5 })
-    .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
-        if (err) {
-            console.log(err);
-            return message.reply("There was an error executing this command");
-        }
-    });
+    function ytdlmp3() {
+        return Promise
+        .all[(
+            ytdl(args[0], { filter: 'audioonly', quality: 'highestaudio', maxReconnect: 50 })
+            .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
+                if (err) {
+                    console.log(err);
+                    return message.reply("There was an error executing this command");
+                }
+            })
+        )]
+        .then(function(){
+            message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
+        })
+        .catch(error => console.error(error));
+    }
 
-    message.reply("Wait a few seconds...");
-
-    setTimeout(function(){
-        message.channel.messages.fetch({ limit: 1 }).then(messages => {
-            message.channel.bulkDelete(messages)
-        });
-    }, 9500);
-
-    setTimeout(function(){
-        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
-    }, 10000);
+    ytdlmp3();
 
     setTimeout(function(){
         fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`);
-    }, 20000);
+    }, 60000);
 }
