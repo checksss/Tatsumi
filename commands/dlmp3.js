@@ -6,8 +6,10 @@ exports.run = async (client, message, args, ops) => {
     if (!args[0]) return message.reply("Please input an url following the command!");
 
     let validate = await ytdl.validateURL(args[0]);
-
-    if(!validate) return message.reply("Please input a valid YouTube URL");
+    if (!validate) {
+        let commandFile = require("dev/searchdl.js");
+        commandFile.run(client, message, args, ops);
+    }
 
     let info = await ytdl.getInfo(args[0]);
 

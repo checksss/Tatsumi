@@ -12,8 +12,9 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}skip__ » Opens a vote to skip the current song.`;
   helpMsg += `\n__${prefix}musiclink__ » Get the current music link`;
   helpMsg += `\n__${prefix}volume__ » Set the bot volume when playing a song`;
-  helpMsg += `\n__${prefix}clear__ (or __${prefix}purge__) » Clear many messages at time`;
+  helpMsg += `\n__${prefix}dlmp3__ » Download a song from link or search`;
   helpMsg += `\n**Moderation**`;
+  helpMsg += `\n__${prefix}clear__ (or __${prefix}purge__) » Clear many messages at time`;
   helpMsg += `\n__${prefix}ban__ » Helps you to ban a member by using a command`;
   helpMsg += `\n__${prefix}kick__ » Helps you to kick a member by using a command`;
   helpMsg += `\n__${prefix}nick__ » Helps you to change other's nickname`;
@@ -23,6 +24,7 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}help__ » Get a private message with a list of commands`;
   helpMsg += `\n__${prefix}invite__ » Get the invite link for the bot`;
   helpMsg += `\n__${prefix}mcstatus__ » Get status of a Minecraft server (Java and MCPE)`;
+  helpMsg += `\n__${prefix}dev/...__ » Try to find the bot's dev commands...`;
   helpMsg += `\n**Tip:** If you add a role named ___mcpestatus__, the default port for the status command will be 19132.`;
   helpMsg += `\n__${prefix}mcskin__ (or __${prefix}skin__) » Get a skin using username (Java only usernames)`;
   helpMsg += `\n__${prefix}8ball__ » Ask the magic 8ball about your future`;
