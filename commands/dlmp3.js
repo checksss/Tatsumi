@@ -14,7 +14,7 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    ytdl(args[0], { filter: 'audioonly', format: 'mp3'})
+    ytdl(args[0], { filter: 'audioonly' })
     .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
         if (err) {
             console.log(err);
@@ -25,12 +25,16 @@ exports.run = async (client, message, args, ops) => {
     message.reply("Wait a few seconds...");
 
     setTimeout(function(){
-        let commandFile = require("./clear.js");
-        args[0] = "1";
-        commandFile.run(client, message, args, ops);
-    }, 9000);
+        message.channel.messages.fetch({ limit: 1 }).then(messages => {
+            message.channel.bulkDelete(messages)
+        });
+    }, 9500);
 
     setTimeout(function(){
         message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
     }, 10000);
+
+    setTimeout(function(){
+        fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`);
+    }, 20000);
 }
