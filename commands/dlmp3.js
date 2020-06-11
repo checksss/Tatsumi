@@ -22,5 +22,5 @@ exports.run = async (client, message, args, ops) => {
 
     message.channel.send('**' + info.title + '**', {files: [{attachment: `tempdl/${filename}.mp3`, name: filename + '.mp3'}]});
     
-    setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
+    setTimeout(fs.unlinkSync(`tempdl/${filename}.mp3`), 600 * 1000);
 }
