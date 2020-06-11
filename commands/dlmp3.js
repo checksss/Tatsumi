@@ -15,7 +15,7 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    let ytvideo = await youtubedl(args[0], ['-f', 'bestaudio[ext=mp3]']);
+    let ytvideo = await youtubedl(args[0], ['-f', 'bestaudio' , '--audio-format', 'mp3']);
     ytvideo.pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
         if(err){
             console.log(err);
