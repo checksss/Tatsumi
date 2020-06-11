@@ -22,8 +22,8 @@ exports.run = async (client, message, args, ops) => {
     });
 
     message.reply("Wait a few seconds...")
-    .then(msg => {
-        msg.delete(10000);
+    .then(message => {
+        message.delete(10000);
     });
 
     setTimeout(function(){
