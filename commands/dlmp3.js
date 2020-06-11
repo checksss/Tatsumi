@@ -13,14 +13,8 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    let stream = ytdl(args[0]);
-    
-    var proc = new ffmpeg({source: stream});
-
-    proc.setFfmpegPath('./tempdl/' + filename + '.mp3');
-    proc.withAudioCodec('libmp3lame');
-    proc.toFormat('mp3');
-    proc.run();
+    let stream = ytdl(args[0], { filter: 'audioonly', format: 'mp3'})
+    .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'));
 
     setTimeout(message.channel.send('**' + info.title + '**', {files: [{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]}), 5 * 1000);
     
