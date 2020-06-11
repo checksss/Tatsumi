@@ -16,7 +16,10 @@ exports.run = async (client, message, args, ops) => {
         ytdl(args[0], { filter: format => format.container === 'mp3' })
         .pipe(fs.createWriteStream('./tempdl/' + filename + '.mp3'))
         .then(message.channel.send('**' + info.title + '**', files[{attachment: './tempdl/' + filename + '.mp3', name: info.title + '.mp3'}]));
-        if (err) return message.reply('There was an error on executing this command');
+        if (err) {
+            console.log(err);
+            return message.reply('There was an error on executing this command');
+        }
     });
 
     setTimeout(fs.unlinkSync('./tempdl/' + filename + '.mp3'), 600 * 1000);
