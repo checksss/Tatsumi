@@ -1,4 +1,5 @@
 const ytdl = require('ytdl-core');
+const youtubedl = require('youtube-dl');
 const fs = require('fs');
 
 exports.run = async (client, message, args, ops) => {
@@ -14,20 +15,16 @@ exports.run = async (client, message, args, ops) => {
 
     let filename = Math.random().toString(36).slice(-8);
 
-    function ytdlmp3() {
-        return ytdl(args[0], { filter: 'audioonly', quality: 'highestaudio', maxReconnect: 50 })
-        .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
-            if (err) {
-                console.log(err);
-                return message.reply("There was an error executing this command");
-            }
-        })
-        .then(function() {
-            message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
-        })
-    };
-
-    ytdlmp3();
+    youtubedl(args[0], ['-x', '--audio-format', 'mp3'])
+    .pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
+        if(err){
+            console.log(err);
+            return message.reply("There was an error executing this command");
+        }
+    })
+    .on('end', function(){
+        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
+    });
 
     setTimeout(function(){
         fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`);
