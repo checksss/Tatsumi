@@ -1,6 +1,6 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
-const ffmpeg = require('ffmpeg-static');
+const ffmpeg = require('ffmpeg');
 
 exports.run = async (client, message, args, ops) => {
     if (!args[0]) return message.reply("Please input an url following the command!");
