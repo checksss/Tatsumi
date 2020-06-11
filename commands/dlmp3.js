@@ -21,10 +21,13 @@ exports.run = async (client, message, args, ops) => {
         }
     });
 
-    message.reply("Wait a few seconds...")
-    .then(message => {
-        message.delete(10000);
-    });
+    message.reply("Wait a few seconds...");
+
+    setTimeout(function(){
+        let commandFile = require("./clear.js");
+        args[0] = "1";
+        commandFile.run(client, message, args, ops);
+    }, 9000);
 
     setTimeout(function(){
         message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
