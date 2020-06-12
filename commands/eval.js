@@ -1,4 +1,4 @@
-exports.run = (client, message, args, ops) => {
+exports.run = async (client, message, args, ops) => {
 
     if(message.author.id !== ops.ownerID) return message.reply("**Only the bot's creator can use this command!**");
 
