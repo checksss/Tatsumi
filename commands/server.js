@@ -32,13 +32,6 @@ exports.run = (client, message, args, ops) => {
         `**Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`,
         `\u200b`
     ])
-    .addField('Presence', [
-        `**Online:** ${members.filter(member => member.presence.status === 'online')}`,
-        `**Idle:** ${members.filter(member => member.presence.status === 'idle')}`,
-        `**Do Not Disturb:** ${members.filter(member => member.presence.status === 'dnd')}`,
-        `**Offline:** ${members.filter(member => member.presence.status === 'offline')}`,
-        `\u200b`
-    ])
     .addField(`Roles [${roles.length - 1}]`, roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'None')
     .setTimestamp();
     message.channel.send(serverinfoEmbed);
