@@ -33,6 +33,7 @@ client.on('message', message => {
 		commandFile.run(client, message, args, ops);
 	} catch (e) {
 		console.log(`${message.author.tag} issued command '${prefix}${cmd}', but it doesn't exist`);
+		console.log(`Logs: \n${e}`);
 		message.reply(`Unknown command. Try __${prefix}help__ for a list of commands.`);
 	}
 });
