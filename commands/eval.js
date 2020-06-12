@@ -26,7 +26,7 @@ exports.run = async (client, message, args, ops) => {
             evalEmbed.addField("Output", "```js\n" + output + "```").setColor(0x7289DA);
         }
         message.channel.send(evalEmbed);
-    } catch(err) {
+    } catch(error) {
         let err = clean(error);
         if (err.length > 1024) {
             const body = await post("https://hastebin.com/documents").send(err);
