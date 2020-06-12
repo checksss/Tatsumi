@@ -14,6 +14,14 @@
       }
     ],
     "env": {
+      "BOT_NAME": {
+        "description": "Your bot name",
+        "required": "true"
+      },
+      "BOT_INVITE": {
+        "description": "Invite link for the bot",
+        "required": "true"
+      },
       "TOKEN": {
         "description": "The token of your Discord Bot",
         "required": "true"
@@ -22,13 +30,9 @@
         "description": "Your Discord user ID, needed for some commands...",
         "required": "true"
       },
-      "BOT_INVITE": {
-        "description": "Invite link for the bot",
-        "required": "true"
-      },
+      
       "PREFIX": {
         "description": "The prefix you want to use with the bot.",
-        "value": "!",
         "required": "true"
       }
     }  
