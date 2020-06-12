@@ -18,6 +18,7 @@
     "@discordjs/opus": "^0.3.2",
     "ffmpeg-static": "^4.2.1",
     "request": "2.88.2",
+    "node-superfetch": "0.1.10",
     "yt-search": "^1.1.2",
     "ytdl-core": "^2.1.2",
     "youtube-dl": "3.0.2"

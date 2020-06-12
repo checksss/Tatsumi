@@ -20,11 +20,11 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}nick__ » Helps you to change other's nickname`;
   helpMsg += `\n__${prefix}mute__ » Mute a user in your Discord server`;
   helpMsg += `\n__${prefix}unmute__ » Unmute a user in your Discord server`;
+  helpMsg += `\n__${prefix}serverinfo__ » Get a server info very easily`;
   helpMsg += `\n**Fun and Misc**`;
   helpMsg += `\n__${prefix}help__ » Get a private message with a list of commands`;
   helpMsg += `\n__${prefix}invite__ » Get the invite link for the bot`;
   helpMsg += `\n__${prefix}mcstatus__ » Get status of a Minecraft server (Java and MCPE)`;
-  helpMsg += `\n__${prefix}dev/...__ » Try to find the bot's dev commands...`;
   helpMsg += `\n**Tip:** If you add a role named ___mcpestatus__, the default port for the status command will be 19132.`;
   helpMsg += `\n__${prefix}mcskin__ (or __${prefix}skin__) » Get a skin using username (Java only usernames)`;
   helpMsg += `\n__${prefix}8ball__ » Ask the magic 8ball about your future`;
@@ -35,5 +35,8 @@ exports.run = (client, message, args, ops) => {
   helpMsg += `\n__${prefix}mail__ (**BETA**) » Create an email easily (powered by Yandex)`;
   helpMsg += `\n**WARNING:** You shouldn't use these mails for normal use, but for privacy use`;
   helpMsg += `\n__${prefix}covid19__ » Get the total cases and deaths of the day for this pandemic situation`;
+  helpMsg += `\n**Administration (bot owner only)**`;
+  helpMsg += `\n__${prefix}eval__ » Execute as the bot in other servers, but make it a good use!`;
+  helpMsg += `\n__${prefix}dev/...__ » All dev commands of the bot currently accessible to everyone`;
   message.author.send(helpMsg);
 }
