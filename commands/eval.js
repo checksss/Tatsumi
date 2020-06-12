@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, ops) => {
 
     if(message.author.id !== ops.ownerID) return message.reply("**Only the bot's creator can use this command!**");
-    const inspect = require('util');
+    const { inspect } = require('util');
 
     try {
         const start = process.hrtime();
