@@ -10,5 +10,6 @@ exports.run = async (client, message, args, ops) => {
         if(typeof output !== "string") output = inspect(output, {depth: 2});
     } catch (error) {
         console.log(error);
+        message.reply("Error: " + error);
     }
 }
