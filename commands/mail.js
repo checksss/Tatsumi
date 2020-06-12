@@ -9,7 +9,7 @@ exports.run = (client, message, args, ops) => {
     }
     var url = "https://pddimp.yandex.ru/api2/admin/email/add";
     var pddtoken = "QW6Y3OFLLAISUSVUP5JYOIXOF4XMY5S7JHQ5RXLKFR5NYBIE4XHA";
-    var domain = "universemail.tk";
+    var domain = "expressmail.tk";
     request(url, {
         headers: {
             "PddToken": pddtoken,
