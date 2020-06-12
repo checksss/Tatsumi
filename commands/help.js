@@ -8,8 +8,8 @@ exports.run = (client, message, args, ops) => {
   .addField("🔊 Music", "`play`, `leave`, `pause`, `resume`, `search`, `skip`, `musiclink`, `volume`, `dlmp3`")
   .addField("👮‍♂️ Moderation", "`clear` (or `purge`), `ban`, `kick`, `nick`, `mute`, `unmute`, `serverinfo`")
   .addField("🔥 Fun and Misc", "`help`, `invite`, `mcstatus`, `mcskin` (or `skin`), `8ball`, `meme`, `fotd`, `mcleaks`")
-  .addField("🚀 Utility", "`mail`, `covid19`")
+  .addField("🚀 Utility", "`mail`, `covid19`, `report`")
   .addField("🔧 Administration (advanced users and bot owner only)", "`eval`, `dev/...`")
   .setColor('RANDOM')
-  message.author.send(helpMsg);
+  message.channel.send(helpMsg);
 }
