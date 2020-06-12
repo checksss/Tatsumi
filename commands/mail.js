@@ -32,10 +32,10 @@ exports.run = (client, message, args, ops) => {
             const mailEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setTitle('New mailbox informations')
-            .setURL(`https://mail.${domain}`)
+            .setURL(`https://mail.${mailparse.domain}`)
             .setDescription(`WARNING: You shouldn't use this mail for normal use, but for privacy use, you've been warned`)
-            .addField("Website URL", `https://mail.${domain}`)
-            .addField("Login", `${args[0]}@${domain}`)
+            .addField("Website URL", `https://mail.${mailparse.domain}`)
+            .addField("Login", `${mailparse.login}`)
             .addField("Password", `${password}`)
             .setFooter("Powered by Yandex", "https://alternativebk.com/wp-content/uploads/2020/02/5e434e2ed746d.png");
             message.author.send(mailEmbed);
