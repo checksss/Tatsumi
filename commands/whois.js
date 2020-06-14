@@ -13,7 +13,6 @@ exports.run = (client, message, args, ops) => {
 	}
 
     const whoisEmbed = new Discord.MessageEmbed()
-    .setFooter(`${whois.user.tag}`, `${whois.user.avatarURL}`)
     .setTimestamp()
     .setColor('RANDOM')
     .addField("User information", [
@@ -25,6 +24,7 @@ exports.run = (client, message, args, ops) => {
         `**Display name:** ${message.guild.members.find('id', whois.id).displayName}`,
         `**Joined at:** ${message.guild.members.find('id', whois.id).joinedAt}`,
         `**Current roles:** ${message.guild.members.find('id', whois.id).roles.join(", ")}`
-    ]);
+    ])
+    .setFooter(`${whois.user.tag}`, `${whois.user.avatarURL}`);
     message.channel.send(whoisEmbed);
 }
