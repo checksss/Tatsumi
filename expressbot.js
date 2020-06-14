@@ -16,7 +16,6 @@ client.on("guildCreate", guild => {
 	.addField("Server ID", guild.id)
 	.setColor('RANDOM');
 	client.channels.cache.get("721671873741586503").send(joinEmbed);
-	)
 });
 
 client.on("guildDelete", guild => {
