@@ -32,9 +32,9 @@ client.on('message', message => {
 		let commandFile = require(`./commands/${cmd}.js`);
 		commandFile.run(client, message, args, ops);
 	} catch (e) {
-		console.log(`${message.author.tag} issued command '${prefix}${cmd}', but it doesn't exist`);
-		console.log(`Logs: \n${e}`);
-		message.reply(`Unknown command. Try __${prefix}help__ for a list of commands.`);
+		console.log(`${message.author.tag} issued command '${prefix}${cmd}', but an error occured executing this command or it doesn't exist`);
+		console.log(`Logs: ${e}`);
+		message.reply(`An error occurred executing this command or it doesn't exist either. Try reporting this bug with \`${prefix}report bug\``);
 	}
 });
 
