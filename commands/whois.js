@@ -5,7 +5,9 @@ exports.run = (client, message, args, ops) => {
     if(!user) return message.reply("You must mention a member");
 
     const whoisEmbed = new Discord.MessageEmbed()
-    .setAuthor(user.user.tag, user.user.avatarURL)
+    .setFooter(user.user.tag, user.user.avatarURL)
+    .setTimestamp()
+    .setColor('RANDOM')
     .addField("User information", [
         `**ID:** ${user.id}`,
         `**Tag:** ${user.user.tag}`
@@ -15,5 +17,6 @@ exports.run = (client, message, args, ops) => {
         `**Display name:** ${message.guild.members.find('id', user.id).displayName}`,
         `**Joined at:** ${message.guild.members.find('id', user.id).joinedAt}`,
         `**Current roles:** ${message.guild.members.find('id', user.id).roles.join(", ")}`
-    ])
+    ]);
+    message.channel.send(whoisEmbed);
 }
