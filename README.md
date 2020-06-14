@@ -8,7 +8,7 @@ Express is a music and moderation bot with simple commands and made in discord.j
 
 Just invite the bot on your Discord server [here](https://itzlightyhd.cf/express).
 
-To discover the commands, just do %help on your Discord server
+To discover the commands, just do x!help on your Discord server
 
 ## Own instance
 
