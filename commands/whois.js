@@ -1,8 +1,16 @@
 const Discord = require('discord.js');
 
 exports.run = (client, message, args, ops) => {
-    let whois = message.mentions.members.first();
-    if(!whois) return message.reply("You must mention a member");
+    var whois = message.mentions.members.first();
+    if(!whois) {
+		try {
+			if (!message.guild.members.get(args.slice(0, 1).join(' '))) throw new Error('Couldn\'t get a Discord user with this userID!');
+			user = message.guild.members.get(args.slice(0, 1).join(' '));
+			user = user.user;
+		} catch (error) {
+			return message.reply('Couldn\'t get a Discord user with this userID!');
+		}
+	}
 
     const whoisEmbed = new Discord.MessageEmbed()
     .setFooter(`${whois.user.tag}`, `${whois.user.avatarURL}`)
