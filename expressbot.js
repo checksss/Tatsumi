@@ -9,7 +9,14 @@ const prefix = process.env.PREFIX;
 const ownerID = process.env.OWNERID;
 
 client.on("guildCreate", guild => {
-    console.log("Joined a new guild: " + guild.name);
+	console.log("Joined a new guild: " + guild.name);
+	const joinEmbed = new Discord.MessageEmbed()
+	.setTitle(guild.name)
+	.setDescription(`**${process.env.BOT_NAME}** was invited in **${guild.name}**, hoping that the server owners trust us.`)
+	.addField("Server ID", guild.id)
+	.setColor('RANDOM');
+	client.channels.cache.get("721671873741586503").send(joinEmbed);
+	)
 });
 
 client.on("guildDelete", guild => {
