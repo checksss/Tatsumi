@@ -5,7 +5,7 @@ exports.run = (client, message, args, ops) => {
     if(!whois) return message.reply("You must mention a member");
 
     const whoisEmbed = new Discord.MessageEmbed()
-    .setFooter(whois.user.tag, whois.user.avatarURL)
+    .setFooter(`${whois.user.tag}`, `${whois.user.avatarURL}`)
     .setTimestamp()
     .setColor('RANDOM')
     .addField("User information", [
