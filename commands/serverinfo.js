@@ -10,7 +10,7 @@ exports.run = (client, message, args, ops) => {
     .setTitle(`${message.guild.name} server informations`)
     .setColor('RANDOM')
     .setDescription('Here you can see the informations about **' + message.guild.name + '**')
-    .setThumbnail(message.guild.iconURL({ dynamic: true}))
+    .setThumbnail(message.guild.iconURL({ dynamic: true }))
     .addField('General', [
         `**Name:** ${message.guild.name}`,
         `**ID:** ${message.guild.id}`,

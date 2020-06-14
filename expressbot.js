@@ -12,6 +12,7 @@ client.on("guildCreate", guild => {
 	console.log("Joined a new guild: " + guild.name);
 	const joinEmbed = new Discord.MessageEmbed()
 	.setTitle(guild.name)
+	.setThumbnail(guild.iconURL({ dynamic: true }))
 	.setDescription(`**${process.env.BOT_NAME}** was invited in **${guild.name}**, hoping that the server owners trust us.`)
 	.addField("Server ID", guild.id)
 	.setColor('RANDOM');
