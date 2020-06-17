@@ -16,17 +16,17 @@ exports.run = async (client, message, args, ops) => {
     let filename = Math.random().toString(36).slice(-8);
 
     let ytvideo = await youtubedl(args[0], ['-f', 'bestaudio' , '--audio-format', 'mp3']);
-    ytvideo.pipe(fs.createWriteStream(`/app/commands/tempdl/${filename}.mp3`), function(err) {
+    ytvideo.pipe(fs.createWriteStream(`./tempdl/${filename}.mp3`), function(err) {
         if(err){
             console.log(err);
             return message.reply("There was an error executing this command");
         }
     });
     ytvideo.on('end', function(){
-        message.channel.send('**' + info.title + '**', {files: [{attachment: `/app/commands/tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
+        message.channel.send('**' + info.title + '**', {files: [{attachment: `./tempdl/${filename}.mp3`, name: info.title + '.mp3'}]});
     });
 
     setTimeout(function(){
-        fs.unlinkSync(`/app/commands/tempdl/${filename}.mp3`);
+        fs.unlinkSync(`./tempdl/${filename}.mp3`);
     }, 60000);
 }
