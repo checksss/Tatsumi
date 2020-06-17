@@ -1,6 +1,4 @@
 language: node_js
 node_js:
   - 12
-script: node server.js
-env:
-  - TOKEN=$TOKEN BOT_INVITE=$BOT_INVITE BOT_NAME=$BOT_NAME OWNERID=$OWNERID PREFIX=$PREFIX
+script: node server.js TOKEN=$TOKEN BOT_INVITE=$BOT_INVITE BOT_NAME=$BOT_NAME OWNERID=$OWNERID PREFIX=$PREFIX
