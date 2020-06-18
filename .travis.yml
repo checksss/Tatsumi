@@ -1,4 +1,15 @@
 language: node_js
 node_js:
   - 12
-script: node server.js TOKEN=$TOKEN BOT_INVITE=https://discord.com/api/oauth2/authorize?client_id=722043004524953620&permissions=8&scope=bot BOT_NAME="Express CI" OWNERID=480987124405895168 PREFIX=ci!
+before_deploy:
+  - npm install -g pkg
+  - pkg . -t node14-linux-x64
+deploy:
+  provider: releases
+  api_key: $GIT_OAUTH
+  file: 
+  - "expressbot"
+  - "/home/travis/build/ItzLightyHD/Express/node_modules/@discordjs/opus/build-tmp-napi-v3/Release/opus.node"
+  skip_cleanup: true
+  draft: true
+script: node server.js TOKEN=$TOKEN BOT_INVITE=https://discord.com/api/oauth2/authorize?client_id=722043004524953620&permissions=8&scope=bot BOT_NAME="Express CI" OWNERID=480987124405895168
