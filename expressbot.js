@@ -48,7 +48,7 @@ client.on('message', message => {
 function getGuildsNumber() {
 	client.shard.fetchClientValues('guilds.cache.size')
 	.then(results => {
-		if(process.env.OBLIVION == 1) return client.user.setActivity(`aiutare la gente, by ImCactus`);
+		if(process.env.OBLIVION == 1) return client.user.setActivity(`aiutare la gente, by ImCactus | ${results.reduce((prev, guildCount) => prev + guildCount, 0)} server`);
 		return client.user.setActivity(`${prefix}help | ${prefix}invite | ${results.reduce((prev, guildCount) => prev + guildCount, 0)} servers`);
 	})
 	.catch(console.error);
