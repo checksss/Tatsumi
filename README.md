@@ -2,7 +2,8 @@
 
 Express is a music and moderation bot with simple commands and made in discord.js
 
-[![Discord Bots](https://top.gg/api/widget/698085345086013480.svg)](https://top.gg/bot/698085345086013480) [![Travis-CI](https://travis-ci.com/ItzLightyHD/Express.svg?branch=master)](https://travis-ci.com/github/ItzLightyHD/Express)
+[![Discord Bots](https://top.gg/api/widget/698085345086013480.svg)](https://top.gg/bot/698085345086013480)
+[![Travis-CI](https://travis-ci.com/ItzLightyHD/Express.svg?branch=master)](https://travis-ci.com/github/ItzLightyHD/Express)
 
 ## Usage
 
