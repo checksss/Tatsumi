@@ -10,7 +10,7 @@ exports.run = (client, message, args, ops) => {
   .addField("🔥 Fun and Misc", "`help`, `invite`, `8ball`, `meme`, `fotd`, `ping`")
   .addField("🚀 Utility", "`mail`, `covid19`, `report`, `say`")
   .addField("🔧 Administration (advanced users and bot owner only)", "`eval`, `dev/...`")
-  .addField("made by checks#4145")
+  .addField("made by checks#4145")", "checks is my creator")
   .setColor('RANDOM')
   message.channel.send(helpMsg);
 }
