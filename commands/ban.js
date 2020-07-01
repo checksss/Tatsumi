@@ -2,7 +2,7 @@ exports.run = (client, message, args, ops) => {
 	if(message.channel.type == 'DM') return message.reply('You can use this command only in servers');
 	var user = message.mentions.users.first();
 	const banReason = args.slice(1).join(' ');
-	if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply("You haven't the permission to execute this command!");
+	if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply("You don't got permission to execute this command!");
 	if(!user) {
 		try {
 			if (!message.guild.members.get(args.slice(0, 1).join(' '))) throw new Error('Couldn\'t get a Discord user with this userID!');
