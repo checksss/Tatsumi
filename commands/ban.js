@@ -18,6 +18,6 @@ exports.run = (client, message, args, ops) => {
 	const Discord = require('discord.js');
 	const banConfirm = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setDescription(`✅ ${user.tag} has been successfully banned!\nReason: __${banReason}__`);
+	.setDescription(`✅ ${user.tag} got fucked lol\nReason: __${banReason}__`);
 	message.channel.send(banConfirm);
 }
